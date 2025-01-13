@@ -40,7 +40,6 @@ while(true){
 
 ```
 type(scope) : short summary
-
 [body]
 
 [footer]
