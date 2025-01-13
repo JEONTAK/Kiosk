@@ -33,7 +33,35 @@ while(true){
         }
 ```
 ---
+## Lv 2. 객체 지향 설계를 적용해 햄버거 메뉴를 클래스로 관리하기
 
+### Requirement
+
+#### Definition
+- [X] MenuItem 클래스 생성
+  - 개별 음식 항목을 관리하는 클래스
+  - 필드 : 이름, 가격, 설명
+- [X] main에서 MenuItem 클래스를 활용하여 햄버거 메뉴를 출력
+  - MenuItem 객체 생성을 통해 이름, 가격, 설명을 세팅
+  - List를 활용하여 MenuItem 추가
+- [X] 반복문을 통해 menuItems를 탐색
+
+
+#### Design (Class and Method)
+
+- [X] Main
+  - 프로세스 컨트롤
+  - Print 역할
+    - MenuItem 출력, 예외 처리 출력
+- [X] MenuItem
+  - 객체 역할
+    - 이름, 가격, 설명 값 저장
+    - 이름 : menuName (String)
+    - 가격 : menuPrice (double)
+    - 설명 : menuInfo (String)
+  - [X] printMenuItem()
+    - 객체 출력 역할
+---
 ---
 ## Commit Convention
 
