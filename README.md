@@ -74,42 +74,45 @@ while(true){
 - [ ] Main에서 관리하던 전체 순서 제어를 Kiosk 클래스를 통해 관리
 
 #### Definition
-- [ ] Kiosk 클래스 생성
+- [X] Kiosk 클래스 생성
   - 키오스크 프로그램의 메뉴를 관리하고 사용자 입력을 처리하는 클래스
   - MenuItem을 관리하는 리스트가 필드로 존재
   - Main 함수에서 관리하던 입력과 반복문 로직은 start 함수를 만들어 관리
   - List<MenuItem> menuItems는 Kiosk 클래스 생성자를 통해 값을 할당.
     - Kiosk 객체를 생성하고 사용하는 main 함수에서 객체를 생성할 때 값을 넘겨줌
 
-- [ ] 키오스크 프로그램을 시작하는 메서드가 구현되어야 함
-  - [ ] 콘솔에 햄버거 메뉴 출력
-  - [ ] 사용자의 입력을 받아 메뉴를 선택하거나 프로그램을 종료
-    - [ ] 유효하지 않은 입력에 대해 오류 메시지를 출력
-    - [ ] 0을 입력하면 프로그램이 종료
+- [X] 키오스크 프로그램을 시작하는 메서드가 구현되어야 함
+  - [X] 콘솔에 햄버거 메뉴 출력
+  - [X] 사용자의 입력을 받아 메뉴를 선택하거나 프로그램을 종료
+    - [X] 유효하지 않은 입력에 대해 오류 메시지를 출력
+    - [X] 0을 입력하면 프로그램이 종료
 
 #### Design (Class and Method)
 
-- [ ] Main
+- [X] Main
   - Kiosk 객체 생성
   - 메뉴 저장
   - start() : 어플리케이션 실행 역할
     - 해당 메서드는 Kiosk 클래스에 존재
 
-- [ ] Kiosk
+- [X] Kiosk
   - 필드 : List<MenuItem>
   - 프로세스 컨트롤
   - 사용자 입력 값 받음
   - 예외 처리 출력
   - add(MenuItem) : 메뉴아이템을 list에 저장
 
-- [ ] MenuItem
+- [X] MenuItem
   - 객체 역할
     - 이름, 가격, 설명 값 저장
     - 이름 : menuName (String)
     - 가격 : menuPrice (double)
     - 설명 : menuInfo (String)
-  - [ ] toString()
+  - [X] toString()
     - 객체 출력 역할
+
+- [X] InvaildInputException
+  - 입력 받은 값이 숫자가 아닐 경우 예외 처리 위함
 ---
 ---
 ## Commit Convention
@@ -118,6 +121,7 @@ while(true){
 
 ```
 type(scope) : short summary
+
 [body]
 
 [footer]
