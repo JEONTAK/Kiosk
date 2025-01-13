@@ -20,10 +20,13 @@ public class MenuItem {
 
     /**
      * Method
-     *
+     * <p>
      * Print current menuItem
+     *
+     * @return
      */
-    public void printMenuItem() {
-        System.out.println(String.format("%-5s", menuName) + "| W " + menuPrice + " | " + menuInfo);
+    @Override
+    public String toString() {
+        return String.format("%-15s", menuName) + "| W " + menuPrice + " | " + menuInfo;
     }
 }

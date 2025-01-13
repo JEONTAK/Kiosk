@@ -22,8 +22,7 @@ public class Main {
             //메뉴판 출력
             System.out.println("[ SHAKESHACK MENU ]");
             for (int i = 0; i < menuItems.size(); i++) {
-                System.out.print((i + 1) + ". ");
-                menuItems.get(i).printMenuItem();
+                System.out.println((i + 1) + ". " + menuItems.get(i).toString());
             }
             System.out.println("0. 종료     | 종료");
 
@@ -33,17 +32,17 @@ public class Main {
              * 1 ~ N : 해당 메뉴 출력
              * N 초과 : 예외 처리
              */
-            System.out.println("\n메뉴를 선택해 주세요.");
+            System.out.println("\n[ 메뉴를 선택해 주세요. ]");
             int selectMenu = Integer.parseInt(br.readLine());
             if (selectMenu == 0) {
-                System.out.println("프로그램을 종료합니다.");
+                System.out.println("[ 프로그램을 종료합니다. ]");
                 break;
             } else if (selectMenu <= menuItems.size()) {
-                System.out.println("선택한 메뉴는");
-                menuItems.get(selectMenu - 1).printMenuItem();
-                System.out.println("입니다.\n");
+                System.out.println("[ 선택한 메뉴는 ]");
+                System.out.println("[ " + menuItems.get(selectMenu - 1).toString() + " ]");
+                System.out.println("[ 입니다. ]\n");
             } else {
-                System.out.println("메뉴에 적혀있는 번호만 입력 가능합니다!\n");
+                System.out.println("[ 메뉴에 적혀있는 번호만 입력 가능합니다! ]\n");
             }
         }
     }
