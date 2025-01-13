@@ -1,9 +1,9 @@
-package com.example.Lv2.model;
+package com.example.Lv3.model;
 
 public class MenuItem {
-    private String menuName;
-    private double menuPrice;
-    private String menuInfo;
+    private final String menuName;
+    private final double menuPrice;
+    private final String menuInfo;
 
     /**
      * Constructor
@@ -19,11 +19,9 @@ public class MenuItem {
     }
 
     /**
-     * Method
-     * <p>
-     * Print current menuItem
+     * Print current menuItem's name, price and description
      *
-     * @return
+     * @return formatted string using menuItem
      */
     @Override
     public String toString() {
