@@ -6,6 +6,7 @@
 ### Requirement
 
 #### Definition
+
 - [X] 햄버거 메뉴 출력 및 선택하기
   - [X] 여러 햄버거 메뉴를 출력
     - 햄버거 메뉴는 String[] 배열에 미리 담아 사용
@@ -38,12 +39,15 @@ while(true){
 ### Requirement
 
 #### Definition
+
 - [X] MenuItem 클래스 생성
   - 개별 음식 항목을 관리하는 클래스
   - 필드 : 이름, 가격, 설명
+
 - [X] main에서 MenuItem 클래스를 활용하여 햄버거 메뉴를 출력
   - MenuItem 객체 생성을 통해 이름, 가격, 설명을 세팅
   - List를 활용하여 MenuItem 추가
+
 - [X] 반복문을 통해 menuItems를 탐색
 
 
@@ -51,15 +55,60 @@ while(true){
 
 - [X] Main
   - 프로세스 컨트롤
-  - Print 역할
-    - MenuItem 출력, 예외 처리 출력
+  - 사용자 입력 값 받음
+  - 예외 처리 출력
+
 - [X] MenuItem
   - 객체 역할
     - 이름, 가격, 설명 값 저장
     - 이름 : menuName (String)
     - 가격 : menuPrice (double)
     - 설명 : menuInfo (String)
-  - [X] printMenuItem()
+  - [X] toString()
+    - 객체 출력 역할
+---
+## Lv 3. 객체 지향 설계를 적용해 순서 제어를 클래스로 관리하기
+
+### Requirement
+
+- [ ] Main에서 관리하던 전체 순서 제어를 Kiosk 클래스를 통해 관리
+
+#### Definition
+- [ ] Kiosk 클래스 생성
+  - 키오스크 프로그램의 메뉴를 관리하고 사용자 입력을 처리하는 클래스
+  - MenuItem을 관리하는 리스트가 필드로 존재
+  - Main 함수에서 관리하던 입력과 반복문 로직은 start 함수를 만들어 관리
+  - List<MenuItem> menuItems는 Kiosk 클래스 생성자를 통해 값을 할당.
+    - Kiosk 객체를 생성하고 사용하는 main 함수에서 객체를 생성할 때 값을 넘겨줌
+
+- [ ] 키오스크 프로그램을 시작하는 메서드가 구현되어야 함
+  - [ ] 콘솔에 햄버거 메뉴 출력
+  - [ ] 사용자의 입력을 받아 메뉴를 선택하거나 프로그램을 종료
+    - [ ] 유효하지 않은 입력에 대해 오류 메시지를 출력
+    - [ ] 0을 입력하면 프로그램이 종료
+
+#### Design (Class and Method)
+
+- [ ] Main
+  - Kiosk 객체 생성
+  - 메뉴 저장
+  - start() : 어플리케이션 실행 역할
+    - 해당 메서드는 Kiosk 클래스에 존재
+
+- [ ] Kiosk
+  - 필드 : List<MenuItem>
+  - 프로세스 컨트롤
+  - 사용자 입력 값 받음
+  - 예외 처리 출력
+  - add(MenuItem) : 메뉴아이템을 list에 저장
+
+- [ ] MenuItem
+  - 객체 역할
+    - 이름, 가격, 설명 값 저장
+    - 이름 : menuName (String)
+    - 가격 : menuPrice (double)
+    - 설명 : menuInfo (String)
+  - [ ] toString()
     - 객체 출력 역할
 ---
 ---
