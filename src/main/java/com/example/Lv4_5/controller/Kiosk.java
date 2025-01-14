@@ -14,7 +14,7 @@ public class Kiosk {
     private final BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 
     /**
-     * To add menuItem into menuItems
+     * To add menu into menu
      *
      * @param menu
      */
@@ -75,6 +75,11 @@ public class Kiosk {
         return true;
     }
 
+    /**
+     * Read and parse User Input Value
+     * @return Integer, if -1 : otherwise
+     * @throws IOException
+     */
     public int parseInput() throws IOException {
         try {
             return Integer.parseInt(br.readLine());
@@ -84,8 +89,10 @@ public class Kiosk {
         }
     }
 
+    /**
+     *  Print Menu Categories
+     */
     public void printCategory() {
-        //메뉴판 출력
         System.out.println("\n[ MAIN MENU ]");
         for (int i = 0; i < menus.size(); i++) {
             System.out.println((i + 1) + ". " + menus.get(i).toString());

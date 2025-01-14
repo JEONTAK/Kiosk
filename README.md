@@ -71,7 +71,7 @@ while(true){
 
 ### Requirement
 
-- [ ] Main에서 관리하던 전체 순서 제어를 Kiosk 클래스를 통해 관리
+- [X] Main에서 관리하던 전체 순서 제어를 Kiosk 클래스를 통해 관리
 
 #### Definition
 - [X] Kiosk 클래스 생성
