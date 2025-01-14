@@ -1,4 +1,4 @@
-package com.example.Lv4.model;
+package com.example.Lv4_5.model;
 
 public class MenuItem {
     private final String menuName;

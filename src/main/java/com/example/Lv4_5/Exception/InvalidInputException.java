@@ -1,4 +1,4 @@
-package com.example.Lv4.Exception;
+package com.example.Lv4_5.Exception;
 
 public class InvalidInputException extends Exception {
 

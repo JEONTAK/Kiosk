@@ -1,6 +1,6 @@
-package com.example.Lv4.Exception;
+package com.example.Lv4_5.Exception;
 
-public class InvalidRangeException extends Exception {
+public class InvalidRangeException extends IndexOutOfBoundsException {
 
     /**
      * Throw when input is not a valid number

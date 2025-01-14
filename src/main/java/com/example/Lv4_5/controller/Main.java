@@ -1,7 +1,7 @@
-package com.example.Lv4.controller;
+package com.example.Lv4_5.controller;
 
-import com.example.Lv4.model.Menu;
-import com.example.Lv4.model.MenuItem;
+import com.example.Lv4_5.model.Menu;
+import com.example.Lv4_5.model.MenuItem;
 
 public class Main {
     public static void main(String[] args) throws Exception {

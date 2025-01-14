@@ -1,7 +1,7 @@
-package com.example.Lv4.controller;
+package com.example.Lv4_5.controller;
 
-import com.example.Lv4.Exception.*;
-import com.example.Lv4.model.Menu;
+import com.example.Lv4_5.Exception.*;
+import com.example.Lv4_5.model.Menu;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
@@ -53,7 +53,7 @@ public class Kiosk {
         }
 
         //입력 값이 1 ~ 해당 카테고리의 메뉴의 개수 사이라면
-        if (selectedCategory <= menus.size()) {
+        try {
             //메뉴 출력
             menus.get(selectedCategory - 1).printMenu();
             int selectedMenu = parseInput();
@@ -63,15 +63,14 @@ public class Kiosk {
                 return true;
             }
 
-            //입력 값이 1 ~ 해당 메뉴의 개수 사이라면
-            if (selectedMenu <= menus.get(selectedCategory - 1).getMenuItems().size()) {
+            try {
                 System.out.println(
                         "선택한 메뉴: " + menus.get(selectedCategory - 1).getMenuItems().get(selectedMenu - 1));
-            } else {
-                System.out.println("메뉴에 적혀있는 번호만 입력 가능합니다.\n");
+            } catch (IndexOutOfBoundsException e) {
+                System.out.println(new InvalidRangeException("메뉴에 적혀있는 번호만 입력 가능합니다.").getMessage());
             }
-        } else {
-            System.out.println("메인 메뉴에 적혀있는 번호만 입력 가능합니다.\n");
+        } catch (IndexOutOfBoundsException e) {
+            System.out.println(new InvalidRangeException("메인 메뉴에 적혀있는 번호만 입력 가능합니다.\n").getMessage());
         }
         return true;
     }
