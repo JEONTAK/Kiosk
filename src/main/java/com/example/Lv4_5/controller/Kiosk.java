@@ -28,7 +28,8 @@ public class Kiosk {
      * @return {@code true} to repeat the process, {@code false} to end it
      * @throws IOException
      */
-    public boolean start() {
+    public boolean start() throws Exception {
+
         //메뉴판 출력
         printCategory();
 
@@ -38,56 +39,55 @@ public class Kiosk {
          * 1 ~ N : 해당 메뉴 출력
          * N 초과 or 숫자가 아닐 경우 : 예외 처리
          */
-        try {
-            return selectCategory();
-        } catch (InvalidInputException | InvalidRangeException | IOException e) {
-            System.out.println(e.getMessage());
-        }
-        return true;
-    }
-
-    public boolean selectCategory() throws IOException, InvalidInputException, InvalidRangeException {
+        //입력 값 받음
         int selectedCategory = parseInput();
+        //비정상적인 값 들어옴
+        if (selectedCategory == -1) {
+            return true;
+        }
 
+        //입력 값이 0이면
         if (selectedCategory == 0) {
             System.out.println("프로그램을 종료합니다.");
             return false;
         }
 
-        if (selectedCategory < 1 || selectedCategory > menus.size()) {
-            throw new InvalidRangeException("메인 메뉴에 적혀있는 번호만 입력 가능합니다.\n");
+        //입력 값이 1 ~ 해당 카테고리의 메뉴의 개수 사이라면
+        if (selectedCategory <= menus.size()) {
+            //메뉴 출력
+            menus.get(selectedCategory - 1).printMenu();
+            int selectedMenu = parseInput();
+
+            //입력 값 0 or 1이면 다시 메인 메뉴 출력
+            if (selectedMenu == 0 || selectedMenu == -1) {
+                return true;
+            }
+
+            //입력 값이 1 ~ 해당 메뉴의 개수 사이라면
+            if (selectedMenu <= menus.get(selectedCategory - 1).getMenuItems().size()) {
+                System.out.println(
+                        "선택한 메뉴: " + menus.get(selectedCategory - 1).getMenuItems().get(selectedMenu - 1));
+            } else {
+                System.out.println("메뉴에 적혀있는 번호만 입력 가능합니다.\n");
+            }
+        } else {
+            System.out.println("메인 메뉴에 적혀있는 번호만 입력 가능합니다.\n");
         }
-
-        selectMenu(selectedCategory);
-
         return true;
     }
 
-    public void selectMenu(int selectedCategory) throws IOException, InvalidInputException, InvalidRangeException {
-        menus.get(selectedCategory - 1).printMenu();
-        int selectedMenu = parseInput();
-        if (selectedMenu == 0) {
-            return;
-        }
-        if (selectedMenu < 1 || selectedMenu > menus.get(selectedCategory).getMenuItems().size()) {
-            throw new InvalidRangeException("메뉴에 적혀있는 번호만 입력 가능합니다.\n");
-        }
-        System.out.println(
-                "선택한 메뉴: " + menus.get(selectedCategory - 1).getMenuItems().get(selectedMenu - 1)
-                        + "\n");
-    }
-
-    public int parseInput() throws InvalidInputException, IOException {
+    public int parseInput() throws IOException {
         try {
             return Integer.parseInt(br.readLine());
         } catch (NumberFormatException e) {
-            throw new InvalidInputException("메뉴 선택은 숫자만 입력 가능합니다.\n");
+            System.out.println(new InvalidInputException("메뉴 선택은 숫자만 입력 가능합니다!").getMessage());
+            return -1;
         }
     }
 
     public void printCategory() {
         //메뉴판 출력
-        System.out.println("[ MAIN MENU ]");
+        System.out.println("\n[ MAIN MENU ]");
         for (int i = 0; i < menus.size(); i++) {
             System.out.println((i + 1) + ". " + menus.get(i).toString());
         }

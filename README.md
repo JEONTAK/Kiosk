@@ -157,7 +157,7 @@ while(true){
 ```
 #### Design (Class and Method)
 
-- [ ] Main
+- [X] Main
   - Menu 객체 생성을 통해 카테고리 별 메뉴 생성
   - 카테고리별 메뉴 저장
   - Kiosk 객체 생성
@@ -165,34 +165,50 @@ while(true){
   - start() : 어플리케이션 실행 역할
     - 해당 메서드는 Kiosk 클래스에 존재
 
-- [ ] Kiosk
+- [X] Kiosk
   - 필드 : List<Menu>
   - 프로세스 컨트롤
   - 사용자 입력 값 받음
   - 입력 값 Menu에 전달
   - add(Menu) : 메뉴를 list에 저장
 
-- [ ] Menu
+- [X] Menu
   - 필드 : List<MenuItem> "카테고리 이름"
   - add(MenuItem) : 메뉴아이템을 list에 저장
-  - [ ] toString() : 카테고리 출력 역할
+  - [X] toString() : 카테고리 출력 역할
   - 예외 처리 출력 메서드(1. 숫자인지, 2. 범위에 해당하는 숫자 인지)
 
-- [ ] MenuItem
+- [X] MenuItem
   - 객체 역할
     - 이름, 가격, 설명 값 저장
     - 이름 : menuName (String)
     - 가격 : menuPrice (double)
     - 설명 : menuInfo (String)
-  - [ ] toString()
+  - [X] toString()
     - 객체 출력 역할
 
-- [ ] InvaildInputException
+- [X] InvaildInputException
   - 입력 받은 값이 숫자가 아닐 경우 예외 처리 위함
 
-- [ ] InvaildRangeException
+- [X] InvaildRangeException
   - 입력 받은 값이 범위안에 들어있지 않은 숫자일 경우
+
+**김수정 튜터님 피드백**
+1. 에러의 책임을 분리
+2. return이 있다면 아래 조건문을 분리하는 것이 좋음
 ---
+## Lv 5. 캡슐화 적용하기
+
+### Requirement
+
+- [X] MenuItem, Menu, Kiosk 클래스의 필드에 직접 접근 불가능하게 설정
+- [X] Getter, Setter 메서드를 사용해 데이터를 관리
+
+
+#### Definition
+- [X] Lv4 부분의 필드를 private로 설정
+- [X] 간접 접근을 위한 Getter, Setter 메서드 사용
+
 ---
 ## Commit Convention
 
