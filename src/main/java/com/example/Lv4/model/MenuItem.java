@@ -1,4 +1,4 @@
-package com.example.Lv3.model;
+package com.example.Lv4.model;
 
 public class MenuItem {
     private final String menuName;
@@ -25,6 +25,6 @@ public class MenuItem {
      */
     @Override
     public String toString() {
-        return String.format("%-15s", menuName) + "| W " + menuPrice + " | " + menuInfo;
+        return String.format("%-20s", menuName) + "| W " + menuPrice + " | " + menuInfo;
     }
 }

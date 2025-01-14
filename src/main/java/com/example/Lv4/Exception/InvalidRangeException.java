@@ -1,13 +1,13 @@
 package com.example.Lv4.Exception;
 
-public class InvalidInputException extends Exception {
+public class InvalidRangeException extends Exception {
 
     /**
      * Throw when input is not a valid number
      *
      * @param message
      */
-    public InvalidInputException(String message) {
+    public InvalidRangeException(String message) {
         super(message);
     }
 }
