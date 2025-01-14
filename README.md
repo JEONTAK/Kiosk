@@ -114,6 +114,85 @@ while(true){
 - [X] InvaildInputException
   - 입력 받은 값이 숫자가 아닐 경우 예외 처리 위함
 ---
+## Lv 4. 객체 지향 설계를 적용해 순서 제어를 클래스로 관리하기
+
+### Requirement
+
+- [ ] Menu 클래스를 생성해 MenuItem 클래스를 관리
+
+
+#### Definition
+- [ ] Menu 클래스 생성
+  - MenuItem을 관리하는 클래스
+    - 예를 들어, 버거 메뉴, 음료 메뉴 등 각 카테고리 내에 여러 MenuItem을 포함함
+    - [ ] List<MenuItem>은 Kiosk 클래스가 아닌 Menu 클래스가 관리하도록 변경
+    - [ ] 여러 버거들을 포함하는 상위 개념 `버거`같은 카테고리 이름 필드를 가짐
+    - [ ] 메뉴 카테고리 이름을 반환하는 메서드가 구현되어야 함
+
+- [ ] Lv4를 구현하면 터미널에 아래와 같이 보여야 함.
+```
+[ MAIN MENU ]
+1. Burgers
+2. Drinks
+3. Desserts
+0. 종료      | 종료
+1 <- // 1을 입력
+
+[ BURGERS MENU ]
+1. ShackBurger   | W 6.9 | 토마토, 양상추, 쉑소스가 토핑된 치즈버거
+2. SmokeShack    | W 8.9 | 베이컨, 체리 페퍼에 쉑소스가 토핑된 치즈버거
+3. Cheeseburger  | W 6.9 | 포테이토 번과 비프패티, 치즈가 토핑된 치즈버거
+4. Hamburger     | W 5.4 | 비프패티를 기반으로 야채가 들어간 기본버거
+0. 뒤로가기
+2 <- // 2를 입력
+선택한 메뉴: SmokeShack | W 8.9 | 베이컨, 체리 페퍼에 쉑소스가 토핑된 치즈버거
+
+[ MAIN MENU ]
+1. Burgers
+2. Drinks
+3. Desserts
+0. 종료      | 종료
+0 <- // 0을 입력
+프로그램을 종료합니다.
+```
+#### Design (Class and Method)
+
+- [ ] Main
+  - Menu 객체 생성을 통해 카테고리 별 메뉴 생성
+  - 카테고리별 메뉴 저장
+  - Kiosk 객체 생성
+  - Kiosk에 List<Menu>를 통해 메뉴 저장
+  - start() : 어플리케이션 실행 역할
+    - 해당 메서드는 Kiosk 클래스에 존재
+
+- [ ] Kiosk
+  - 필드 : List<Menu>
+  - 프로세스 컨트롤
+  - 사용자 입력 값 받음
+  - 입력 값 Menu에 전달
+  - add(Menu) : 메뉴를 list에 저장
+
+- [ ] Menu
+  - 필드 : List<MenuItem> "카테고리 이름"
+  - add(MenuItem) : 메뉴아이템을 list에 저장
+  - [ ] toString() : 카테고리 출력 역할
+  - 예외 처리 출력 메서드(1. 숫자인지, 2. 범위에 해당하는 숫자 인지)
+
+- [ ] MenuItem
+  - 객체 역할
+    - 이름, 가격, 설명 값 저장
+    - 이름 : menuName (String)
+    - 가격 : menuPrice (double)
+    - 설명 : menuInfo (String)
+  - [ ] toString()
+    - 객체 출력 역할
+
+- [ ] InvaildInputException
+  - 입력 받은 값이 숫자가 아닐 경우 예외 처리 위함
+
+- [ ] InvaildRangeException
+  - 입력 받은 값이 범위안에 들어있지 않은 숫자일 경우
+---
 ---
 ## Commit Convention
 
