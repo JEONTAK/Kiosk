@@ -1,4 +1,4 @@
-package com.example.Lv4_5.Exception;
+package com.example.Lv6.Exception;
 
 public class InvalidRangeException extends IndexOutOfBoundsException {
 

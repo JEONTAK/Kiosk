@@ -1,7 +1,8 @@
-package com.example.Lv4_5.controller;
+package com.example.Lv6.controller;
 
-import com.example.Lv4_5.model.Menu;
-import com.example.Lv4_5.model.MenuItem;
+import com.example.Lv6.model.Menu;
+import com.example.Lv6.model.MenuItem;
+import com.example.Lv6.model.Order;
 
 public class Main {
     public static void main(String[] args) throws Exception {
@@ -28,16 +29,23 @@ public class Main {
         desserts.addMenuItem(new MenuItem("Shack-ffogato", 6.2, "바닐라 커스터드에 커피 카라멜 소스, 초콜릿 토핑이 어우러진 아포카토 디저트"));
         desserts.addMenuItem(new MenuItem("Shack in the Garden", 6.2, "바닐라 커스터드에 라즈베리 잼, 쇼트브레드, 말차가 블렌딩된 디저트"));
 
+        //장바구니 생성
+        Order order = new Order();
+
         //키오스크 객체 생성
-        Kiosk kiosk = new Kiosk();
+        Kiosk kiosk = new Kiosk(order);
         //메뉴 카테고리 저장
         kiosk.addMenuCategory(burgers);
         kiosk.addMenuCategory(drinks);
         kiosk.addMenuCategory(desserts);
 
-        boolean flag = true;
-        while (flag) {
+        // 1 : 그대로 실행 / 2 : 장바구니 초기화 후 실행 / 0 : 종료
+        int flag = 1;
+        while (flag != 0) {
             flag = kiosk.start();
+            if (flag == 2) {
+                kiosk.setOrder();
+            }
         }
     }
 }

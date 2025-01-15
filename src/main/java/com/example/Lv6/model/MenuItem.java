@@ -1,4 +1,4 @@
-package com.example.Lv4_5.model;
+package com.example.Lv6.model;
 
 public class MenuItem {
     private final String menuName;
@@ -26,5 +26,23 @@ public class MenuItem {
     @Override
     public String toString() {
         return String.format("%-20s", menuName) + "| W " + menuPrice + " | " + menuInfo;
+    }
+
+    /**
+     * Get menu price
+     *
+     * @return menuPrice
+     */
+    public double getPrice() {
+        return menuPrice;
+    }
+
+    /**
+     * Get menu name
+     *
+     * @return menuName
+     */
+    public String getName() {
+        return menuName;
     }
 }

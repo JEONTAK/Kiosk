@@ -1,4 +1,4 @@
-package com.example.Lv4_5.model;
+package com.example.Lv6.model;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -49,6 +49,7 @@ public class Menu {
 
     /**
      * Returns the string category of this menu
+     *
      * @return the category name
      */
     @Override
