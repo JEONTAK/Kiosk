@@ -2,6 +2,7 @@ package com.example.Lv6.model;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.stream.IntStream;
 
 public class Menu {
 
@@ -39,11 +40,9 @@ public class Menu {
      * Print menus
      */
     public void printMenu() {
-        //메뉴판 출력
         System.out.println("[ " + category + " MENU ]");
-        for (int i = 0; i < menuItems.size(); i++) {
-            System.out.println((i + 1) + ". " + menuItems.get(i).toString());
-        }
+        IntStream.range(0, menuItems.size()).mapToObj(i -> (i + 1) + ". " + menuItems.get(i).toString())
+                .forEach(System.out::println);
         System.out.println("0. 뒤로가기");
     }
 
