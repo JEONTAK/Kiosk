@@ -136,7 +136,7 @@ public class Kiosk {
                 return 1;
             }
 
-            //1 : 할인 선택 / 2: 메인 메뉴판으로 이동 / 그 외 예외 처리
+            //1 : 할인 선택 / 2: 메인 메뉴판으로 이동 / 3. 삭제 프로세스 / 그 외 예외 처리
             if (confirmOrder == 1) {
                 //할인 정보 출력
                 DiscountType.printType();
@@ -150,7 +150,10 @@ public class Kiosk {
                     return 1;
                 }
 
+                //장바구니의 모든 메뉴의 가격 총 합 구함
                 double totalPrice = order.getTotalPrice();
+                
+                //할인율에 따라 할인 적용
                 totalPrice = totalPrice * (1 - DiscountType.values()[selectType - 1].getDiscountRate() / 100);
 
                 //주문 결과 출력

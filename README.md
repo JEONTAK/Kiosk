@@ -323,7 +323,7 @@ W 8.9
     - 예시 : 군인, 학생, 일반인
   - [ ] 주문 시, 사용자 유형에 맞는 할인율 적용해 총 금액 계산
 
-- [ ] 럼더 & 스트림을 활용한 장바구니 조회 기능
+- [ ] 람다 & 스트림을 활용한 장바구니 조회 기능
   - [ ] 기존에 생성한 Menu의 MenuItem을 조회할 때 스트림을 사용하여 출력하도록 수정
   - [ ] 기존 장바구니에서 특정 메뉴 빼기 기능을 통한 스트림 활용
     - stream.filter 활용
@@ -417,6 +417,11 @@ W 8.9
 
 - [X] Menu class 수정
   - [X] printMenu() stream으로 수정
+
+### Trouble Shooting
+https://velog.io/@tak980418/Kiosk-Trouble-Shooting
+
+
 ---
 ## Commit Convention
 
