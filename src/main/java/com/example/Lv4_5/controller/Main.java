@@ -16,7 +16,7 @@ public class Main {
         //음료 카테고리
         Menu drinks = new Menu("Drinks");
         drinks.addMenuItem(new MenuItem("Cola", 2.9, "누구나 좋아하는 탄산이 톡 쏘는 콜라"));
-        drinks.addMenuItem(new MenuItem("Cider ", 2.9, "누구나 좋아하는 탄산이 톡 쏘는 사이다"));
+        drinks.addMenuItem(new MenuItem("Cider", 2.9, "누구나 좋아하는 탄산이 톡 쏘는 사이다"));
         drinks.addMenuItem(new MenuItem("Iced tea", 3.7, "직접 유기농 홍차를 우려낸 아이스 티"));
         drinks.addMenuItem(new MenuItem("Lemonade", 4.5, "매장에서 직접 만드는 상큼한 레몬에이드"));
         drinks.addMenuItem(new MenuItem("Shakes", 6.8, "쫀득하고 진한 커스터드가 들어간 클래식 쉐이크"));

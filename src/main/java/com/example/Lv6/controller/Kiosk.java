@@ -2,6 +2,7 @@ package com.example.Lv6.controller;
 
 import com.example.Lv6.Exception.InvalidInputException;
 import com.example.Lv6.Exception.InvalidRangeException;
+import com.example.Lv6.model.DiscountType;
 import com.example.Lv6.model.Menu;
 import com.example.Lv6.model.MenuItem;
 import com.example.Lv6.model.Order;
@@ -10,6 +11,7 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.stream.IntStream;
 
 public class Kiosk {
 
@@ -118,27 +120,53 @@ public class Kiosk {
                 System.out.println(new InvalidRangeException("적혀있는 번호만 입력 가능합니다.\n").getMessage());
             }
             return 1;
-        } else {
-            //주문 선택을 했을 경우
-            if ((totalIdx - 1) == selectedCategory) {
-                //주문 내역 출력
-                order.printOrders();
-                //주문 확정 유무 입력 값 받음
-                int confirmOrder = parseInput();
-
-                //1 : 주문 확정 / 2: 메인 메뉴판으로 이동 / 그 외 예외 처리
-                if (confirmOrder == 1) {
-                    System.out.println("주문이 완료되었습니다. 금액은 W " + order.getTotalPrice() + " 입니다.");
-                    return 2;
-                } else if (confirmOrder != 2) {
-                    System.out.println(new InvalidRangeException("적혀있는 번호만 입력 가능합니다.\n").getMessage());
-                }
-                return 1;
-            } else {
-                System.out.println("주문이 취소되었습니다.");
-                return 2;
-            }
         }
+
+
+        //주문 선택을 했을 경우
+        if ((totalIdx - 1) == selectedCategory) {
+            //주문 내역 출력
+            order.printOrders();
+            //주문 확정 유무 입력 값 받음
+            int confirmOrder = parseInput();
+
+            //예외 처리
+            if (confirmOrder < 1 || confirmOrder > 3) {
+                System.out.println(new InvalidRangeException("적혀있는 번호만 입력 가능합니다.\n").getMessage());
+                return 1;
+            }
+
+            //1 : 할인 선택 / 2: 메인 메뉴판으로 이동 / 그 외 예외 처리
+            if (confirmOrder == 1) {
+                //할인 정보 출력
+                DiscountType.printType();
+
+                //할인 선택 입력 값 받음
+                int selectType = parseInput();
+
+                //범위 안에 있지 않다면 메인 메뉴 화면 이동
+                if (selectType < 1 || selectType > DiscountType.values().length) {
+                    System.out.println(new InvalidRangeException("적혀있는 번호만 입력 가능합니다.\n").getMessage());
+                    return 1;
+                }
+
+                double totalPrice = order.getTotalPrice();
+                totalPrice = totalPrice * (1 - DiscountType.values()[selectType - 1].getDiscountRate() / 100);
+
+                //주문 결과 출력
+                System.out.println("주문이 완료되었습니다. 금액은 W " + totalPrice + " 입니다.");
+                return 2;
+            } else if (confirmOrder == 3) {
+                //삭제 프로세스 수행
+                System.out.println("삭제할 메뉴를 적어주세요");
+                String deleteName = br.readLine();
+                order.deleteOrders(deleteName);
+            }
+            return 1;
+        }
+
+        System.out.println("주문이 취소되었습니다.");
+        return 2;
     }
 
     /**
@@ -161,9 +189,8 @@ public class Kiosk {
      */
     public void printCategory() {
         System.out.println("\n[ MAIN MENU ]");
-        for (int i = 0; i < menus.size(); i++) {
-            System.out.println((i + 1) + ". " + menus.get(i).toString());
-        }
+        IntStream.range(0, menus.size()).mapToObj(i -> (i + 1) + ". " + menus.get(i).toString())
+                .forEach(System.out::println);
         System.out.println("0. 종료     | 종료");
 
         if (order.getSize() != 0) {
