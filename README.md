@@ -395,27 +395,28 @@ W 8.9
 ```
 #### Design (Class and Method)
 
-- [ ] ClientType 클래스 생성 (Enum)
+- [X] ClientType 클래스 생성 (Enum)
   - 국가 유공자 : 10
   - 군인 : 5
   - 학생 : 3
   - 일반인 0
-  - [ ] getDiscountRate() : 할인율 가져오기 위한 메서드
+  - [X] getDiscountRate() : 할인율 가져오기 위한 메서드
+  - [X] printType() : 할인 정보 출력 위한 메서드
 
-- [ ] Kiosk 클래스에 추가
-  - [ ] 주문 확인 절차에서 1.주문 클릭시 할인 정보 입력 내용 출력
-    - [ ] 범위에 맞는 숫자 입력시 해당 할인율 가져와 전체 금액에 곱한 후 알맞게 출력
-      - [ ] 숫자 X or 범위 벗어나는 숫자 입력 시 예외 처리
-  - [ ] Order 와 Cancel 사이에 Delete 추가
-    - [ ] 해당 선택 시, 메뉴 이름 입력 받아 해당 메뉴 이름을 가진 메뉴 장바구니에서 제거 메서드 실행
+- [X] Kiosk 클래스에 추가
+  - [X] 주문 확인 절차에서 1.주문 클릭시 할인 정보 입력 내용 출력
+    - [X] 범위에 맞는 숫자 입력시 해당 할인율 가져와 전체 금액에 곱한 후 알맞게 출력
+      - [X] 숫자 X or 범위 벗어나는 숫자 입력 시 예외 처리
+  - [X] Order 프로세스시, 주문, 취소 다음으로 메뉴 삭제 추가
+    - [X] 해당 선택 시, 메뉴 이름 입력 받아 해당 메뉴 이름을 가진 메뉴 장바구니에서 제거 메서드 실행
 
-- [ ] Order class 수정
-  - [ ] printOrders() stream으로 수정
-  - [ ] getTotalPrice() stream으로 수정
-  - [ ] deleteOrder(String name) : stream.filter를 활용해 특정 메뉴 이름을 가진 메뉴 제거
+- [X] Order class 수정
+  - [X] printOrders() stream으로 수정
+  - [X] getTotalPrice() stream으로 수정
+  - [X] deleteOrder(String name) : stream을 활용해 name을 가진 메뉴 제거 -> removeIf 사용
 
-- [ ] Menu class 수정
-  - [ ] printMenu() stream으로 수정
+- [X] Menu class 수정
+  - [X] printMenu() stream으로 수정
 ---
 ## Commit Convention
 
