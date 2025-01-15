@@ -1,6 +1,5 @@
 package com.example.Lv6.controller;
 
-import com.example.Lv6.model.DiscountType;
 import com.example.Lv6.model.Menu;
 import com.example.Lv6.model.MenuItem;
 import com.example.Lv6.model.Order;
